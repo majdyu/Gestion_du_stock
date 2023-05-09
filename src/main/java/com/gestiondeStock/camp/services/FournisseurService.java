@@ -12,7 +12,7 @@ public interface FournisseurService {
 
     Fournisseur createFournisseur(Fournisseur fournisseur);
 
-    Fournisseur updateFournisseur(Long id, Fournisseur fournisseur);
+    Fournisseur updateFournisseur(Fournisseur fournisseur);
 
     void deleteFournisseur(Long id);
 }

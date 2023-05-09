@@ -38,28 +38,12 @@ public class FournisseurServiceImpl implements FournisseurService {
     }
 
     @Override
-    public Fournisseur updateFournisseur(Long id, Fournisseur fournisseurDetails) {
-        Optional<Fournisseur> optionalFournisseur = fournisseurRepository.findById(id);
-        if (optionalFournisseur.isPresent()) {
-            Fournisseur fournisseur = optionalFournisseur.get();
-            fournisseur.setLogo(fournisseurDetails.getLogo());
-            fournisseur.setNom(fournisseurDetails.getNom());
-            fournisseur.setEmail(fournisseurDetails.getEmail());
-            fournisseur.setTelephone(fournisseurDetails.getTelephone());
-            fournisseur.setAdresse(fournisseurDetails.getAdresse());
-            return fournisseurRepository.save(fournisseur);
-        } else {
-            throw new IllegalArgumentException("Fournisseur non trouvé pour l'identifiant " + id);
-        }
+    public Fournisseur updateFournisseur(Fournisseur fournisseur) {
+        return fournisseurRepository.save(fournisseur);
     }
 
     @Override
     public void deleteFournisseur(Long id) {
-        Optional<Fournisseur> optionalFournisseur = fournisseurRepository.findById(id);
-        if (optionalFournisseur.isPresent()) {
-            fournisseurRepository.delete(optionalFournisseur.get());
-        } else {
-            throw new IllegalArgumentException("Fournisseur non trouvé pour l'identifiant " + id);
-        }
+        fournisseurRepository.deleteById(id);
     }
 }

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="fragments/head :: head"/>
+
+<body>
+
+<!--*******************
+    Preloader start
+********************-->
+<div id="preloader">
+  <div class="loader">
+    <svg class="circular" viewBox="25 25 50 50">
+      <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+    </svg>
+  </div>
+</div>
+<!--*******************
+    Preloader end
+********************-->
+
+
+<!--**********************************
+    Main wrapper start
+***********************************-->
+<div id="main-wrapper">
+
+  <!--**********************************
+      Nav header start
+  ***********************************-->
+  <div class="nav-header">
+    <div class="brand-logo">
+      <a href="index.html">
+        <b class="logo-abbr"><img th:src="@{/back/images/logo.png}" alt=""> </b>
+        <span class="logo-compact"><img th:src="@{/back/images/logo-compact.png}" alt=""></span>
+        <span class="brand-title">
+                        <img th:src="@{/back/images/logo-text.png}" alt="">
+                    </span>
+      </a>
+    </div>
+  </div>
+  <!--**********************************
+      Nav header end
+  ***********************************-->
+
+  <div th:replace="fragments/navheader :: navheader"/>
+
+  <div th:replace="fragments/sidebar :: sidebar"/>
+
+  <!--**********************************
+      body content start
+  ***********************************-->
+  <div class="content-body">
+    <h3> Add Provider</h3>
+    <div class="card">
+      <div class="card-body">
+        <div class="col-md-10">
+          <form th:action="@{/fournisseurs/ajouter}" th:object="${fournisseur}" method="post" enctype="multipart/form-data">
+            <div class="row">
+
+              <div class="form-group col-md-8">
+                <label class="col-form-label">Logo</label>
+                <input class="form-control-file" type="file" name="files" multiple>
+              </div>
+
+              <div class="form-group col-md-8">
+                <label class="col-form-label">Nom</label> <input type="text" th:field="*{nom}" class="form-control" id="nom" placeholder="nom">
+              </div>
+
+              <div class="form-group col-md-8">
+                <label  class="col-form-label">Email</label> <input type="email" th:field="*{email}" class="form-control" id="telephone" placeholder="email">
+              </div>
+              <div class="form-group col-md-8">
+                <label  class="col-form-label">Telephone</label> <input type="text" th:field="*{telephone}" class="form-control" id="telephone" placeholder="telephone">
+              </div>
+              <div class="form-group col-md-8">
+                <label class="col-form-label">Adresse</label> <input type="text" th:field="*{adresse}" class="form-control" id="address" placeholder="address">
+              </div>
+
+              <div class="col-md-6">
+                <input type="submit" class="btn btn-primary" value="Add Fournisseur">
+              </div>
+
+              <div class="form-group col-md-8"></div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--**********************************
+      body content end
+  ***********************************-->
+
+  <div th:replace="fragments/footer :: footer"/>
+
+</div>
+<!--**********************************
+    Main wrapper end
+***********************************-->
+
+<!--**********************************
+    Scripts
+***********************************-->
+<script th:src="@{/back/plugins/common/common.min.js}"></script>
+<script th:src="@{/back/js/custom.min.js}"></script>
+<script th:src="@{/back/js/settings.js}"></script>
+<script th:src="@{/back/js/gleek.js}"></script>
+<script th:src="@{/back/js/styleSwitcher.js}"></script>
+
+<!-- Chartjs -->
+<script th:src="@{/back/plugins/chart.js/Chart.bundle.min.js}"></script>
+<!-- Circle progress -->
+<script th:src="@{/back/plugins/circle-progress/circle-progress.min.js}"></script>
+<!-- Datamap -->
+<script th:src="@{/back/plugins/d3v3/index.js}"></script>
+<script th:src="@{/back/plugins/topojson/topojson.min.js}"></script>
+<script th:src="@{/back/plugins/datamaps/datamaps.world.min.js}"></script>
+<!-- Morrisjs -->
+<script th:src="@{/back/plugins/raphael/raphael.min.js}"></script>
+<script th:src="@{/back/plugins/morris/morris.min.js}"></script>
+<!-- Pignose Calender -->
+<script th:src="@{/back/plugins/moment/moment.min.js}"></script>
+<script th:src="@{/back/plugins/pg-calendar/js/pignose.calendar.min.js}"></script>
+<!-- ChartistJS -->
+<script th:src="@{/back/plugins/chartist/js/chartist.min.js}"></script>
+<script th:src="@{/back/plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js}"></script>
+
+
+
+<script th:src="@{back/js/dashboard/dashboard-1.js}"></script>
+
+</body>
+
+</html>
